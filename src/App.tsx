@@ -1,25 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Link from './react-router/Link';
+import Route from './react-router/Route';
+import Routes from './react-router/Routes';
+
+const ComponentA = () => {
+  return (
+    <div>
+      ComponentA, Click to hello B<Link to="/helloB">Hello</Link>
+    </div>
+  );
+};
+
+const ComponentB = () => {
+  return (
+    <div>
+      ComponentB, Click to hello A<Link to="/helloA">Hello</Link>
+    </div>
+  );
+};
 
 function App() {
-  console.log();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/">
+          <ComponentA />
+        </Route>
+        <Route path="/helloA/:id">
+          <ComponentA />
+        </Route>
+        <Route path="/helloB/:id">
+          <ComponentB />
+        </Route>
+      </Routes>
     </div>
   );
 }
