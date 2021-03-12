@@ -9,7 +9,7 @@ const Routes: React.FC = (props) => {
 
   const match = matchRoutes(props.children, location);
 
-  console.log(match);
+  console.log(match.route);
 
   if (!match) return null;
 

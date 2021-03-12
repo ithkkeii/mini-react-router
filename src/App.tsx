@@ -4,34 +4,34 @@ import Link from './react-router/Link';
 import Route from './react-router/Route';
 import Routes from './react-router/Routes';
 
-const ComponentA = () => {
-  return (
-    <div>
-      ComponentA, Click to hello B<Link to="/helloB">Hello</Link>
-    </div>
-  );
+const Menu = () => {
+  return <div>Menu</div>;
 };
 
-const ComponentB = () => {
-  return (
-    <div>
-      ComponentB, Click to hello A<Link to="/helloA">Hello</Link>
-    </div>
-  );
+const Profile = () => {
+  return <div>Profile</div>;
 };
 
 function App() {
   return (
     <div className="App">
+      <div>
+        <Link to="/menu">Menu</Link>
+        <Link to="/profile">Profile</Link>
+        <Link to="/hihi">HiHi</Link>
+      </div>
       <Routes>
-        <Route path="/">
-          <ComponentA />
+        {/* <Route path="/">
+          <Menu />
+        </Route> */}
+        <Route path="/menu">
+          <Menu />
         </Route>
-        <Route path="/helloA/:id">
-          <ComponentA />
+        <Route path="/profile">
+          <Profile />
         </Route>
-        <Route path="/helloB/:id">
-          <ComponentB />
+        <Route path="/hihi">
+          <div>hihi</div>
         </Route>
       </Routes>
     </div>

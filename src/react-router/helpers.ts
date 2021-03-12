@@ -27,12 +27,12 @@ export const matchRoutes = (children: React.ReactNode, location: string) => {
     if (match) {
       matches.push({
         route: (route as React.ReactElement).props.children,
-        params: keys.reduce((collection, key, index) => {
-          (collection as any)[key] = (route as React.ReactElement).props.params[
-            index
-          ];
-          return collection;
-        }, {}),
+        // params: keys.reduce((collection, key, index) => {
+        //   (collection as any)[key] = (route as React.ReactElement).props.params[
+        //     index
+        //   ];
+        //   return collection;
+        // }, {}),
       });
     }
   });
