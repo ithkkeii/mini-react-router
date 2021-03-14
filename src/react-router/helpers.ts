@@ -25,14 +25,13 @@ export const matchRoutes = (children: React.ReactNode, location: string) => {
     const match = location.match(regex);
 
     if (match) {
+      const params = match.slice(2);
       matches.push({
         route: (route as React.ReactElement).props.children,
-        // params: keys.reduce((collection, key, index) => {
-        //   (collection as any)[key] = (route as React.ReactElement).props.params[
-        //     index
-        //   ];
-        //   return collection;
-        // }, {}),
+        params: keys.reduce((collection, key, index) => {
+          (collection as any)[key] = params[index];
+          return collection;
+        }, {}),
       });
     }
   });
